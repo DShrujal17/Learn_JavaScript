@@ -61,4 +61,77 @@
 //     return `rgb(${red}, ${green}, ${blue})`;
 // }
 
+// ---------------------------------------------------------------------------------------
 
+// Example 3 : This in Event Listener
+
+// let btn = document.querySelector("#btn");
+
+// btn.addEventListener("click", function () {
+//     console.dir(this);           
+//     this.style.color = "red";    
+// });
+
+// ---------------------------------------------------------------------------------------
+
+// Example 4 : Keyboard Event 
+
+// let inp = document.querySelector("input");
+
+// inp.addEventListener("keypress",(event) => {
+//     console.log("key = ",event.key);
+//     console.log("code = ",event.code);
+//     console.log("Key was pressed");
+// });
+
+// ---------------------------------------------------------------------------------------
+
+// Example 5 : Forms Event 
+
+// let form = document.querySelector("form");
+
+// form.addEventListener("submit",(event) => {
+//     event.preventDefault();
+//     alert("Form submitted");
+// });
+
+// ---------------------------------------------------------------------------------------
+
+// Example 6 : Extracting data from Forms 
+
+// let form = document.querySelector("form");
+
+// form.addEventListener("submit",(event) => {
+//     event.preventDefault();
+    
+//     console.dir(form);
+//     let user = form.elements[0];
+//     console.log("User is",user.value);
+
+//     let pass = form.elements[1];
+//     console.log("User's password is",pass.value);
+
+//     alert(`Hi ${user.value} Your password is ${pass.value}`);
+// });
+
+// ---------------------------------------------------------------------------------------
+
+// Example 7: More Forms Event 
+
+// let form = document.querySelector("form");
+
+// form.addEventListener("submit",(event) => {
+//     event.preventDefault();
+// });
+
+// let inp = document.querySelector("input");
+
+// inp.addEventListener("change",(event) => {
+//     console.log("Change event");
+//     console.log("Input is",inp.value);
+// });
+
+// inp.addEventListener("input",(event) => {
+//     console.log("Change event");
+//     console.log("Input is",inp.value);
+// });

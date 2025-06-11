@@ -92,7 +92,7 @@
 
 // With Promises 
 
-// Main Function for Ex4 and Ex5 :
+// Main Function for Ex3 and Ex4 :
 
 // function savetoDb(Data,success,failuer) 
 // {

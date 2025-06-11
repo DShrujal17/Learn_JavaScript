@@ -61,7 +61,7 @@ function btnPress() {
     let btn = this;
     userFlash(btn);
 
-    let userColor = btn.getAttribute("id"); // FIXED: declared with let
+    let userColor = btn.getAttribute("id");
     userSeq.push(userColor);
 
     checkAns(userSeq.length - 1);

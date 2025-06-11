@@ -1,0 +1,179 @@
+// ---------------------------------------------------------------------------------------
+// ******************************** Asynchronous Nature  *********************************
+// ---------------------------------------------------------------------------------------
+
+
+// ---------------------------------------------------------------------------------------
+
+// Example 1 : Call Stack with Breakpoint 
+
+// function one() {
+//     return 1;
+// }
+
+// function two()  {
+//     return one() + one();
+// }
+
+// function three() {
+//     let ans = two() + one();
+//     console.log(ans);
+// }
+
+// three();
+
+// ---------------------------------------------------------------------------------------
+
+// Example 2 : CallBack Hell
+
+// let h1 = document.querySelector("h1");
+
+// function changeColor(color,delay,nextColorChange) {
+//     setTimeout(() => {
+//         h1.style.color = color
+//         if(nextColorChange) nextColorChange();
+//     },delay);
+// }
+
+// changeColor("red",1000,() => {
+//     changeColor("blue",1000,() => {
+//         changeColor("green",1000,() => {
+//             changeColor("Grey",1000);
+//         });
+//     });
+// });
+
+// ---------------------------------------------------------------------------------------
+
+// Example 2 : Setting up Promises
+
+// callBack Hell
+
+// function savetoDb(Data,success,failuer) 
+// {
+//     let internetSpeed = Math.floor(Math.random() * 10) +1;
+//     if(internetSpeed > 4)
+//     {
+//         success();
+        
+//     }
+//     else {
+//         failuer();
+        
+//     }
+// }
+
+// savetoDb("Shrujal Doshi",
+//     () => {
+//         console.log("success1 : Your data1 was saved:");
+
+//         savetoDb("Hello World",
+//             () => {
+//                 console.log("success2 : Your data2 was saved:");
+
+//                 savetoDb("Hii",
+//                 () => {
+//                     console.log("success3 : Your data3 was saved:");
+//                 },
+//                 () => {
+//                     console.log("faliuer3 : Weak connection. data3 not saved");
+//                 }
+//         );
+//             },
+//             () => {
+//                 console.log("faliuer2 : Weak connection. data2 not saved");
+//             }
+//         );
+//     },
+//     () =>{
+//         console.log("faliuer1 : Weak connection. data not saved");
+//     }
+// );
+
+// With Promises 
+
+// Main Function for Ex4 and Ex5 :
+
+// function savetoDb(Data,success,failuer) 
+// {
+//     return new Promise((resolve,reject) => {
+//         let internetSpeed = Math.floor(Math.random() * 10) +1;
+//         if(internetSpeed > 4)
+//         {
+//             resolve("Success: Data was saved");
+//         }
+//         else 
+//         {
+//             reject("Faliuer: Data wasn't save");
+//         }
+//     });
+// }
+
+// ---------------------------------------------------------------------------------------
+
+// Example 3 : then and catch keyword
+
+// savetoDb("Diya Patel")
+//     .then( () => {
+//         console.log("Promise was resolved");
+//     })
+//     .catch(() => {
+//         console.log("Promise was rejected");
+//     });
+
+// ---------------------------------------------------------------------------------------
+
+// Example 4 : Promise Chaining & Result and Error 
+
+// savetoDb("Diya Patel")
+//     .then( (result) => {
+//         console.log("Data1 was resolved");
+//         console.log(result);
+//         return savetoDb("Shrujal Doshi");
+//     })
+//     .then((result) => {
+//         console.log("Data2 was resolved");
+//         console.log(result);
+//         return savetoDb("Vrund Patel");
+//     })
+//     .then((result) => {
+//         console.log("Data3 was resolved");
+//         console.log(result);
+//     })
+//     .catch((error) => {
+//         console.log("Data was rejected");
+//         console.log(error);
+//     });
+
+// ---------------------------------------------------------------------------------------
+
+// Example 5 : Refactoring old code 
+
+// let h1 = document.querySelector("h1");
+
+// function changeColor(color, delay) {
+//     return new Promise((resolve, reject) => { 
+//         setTimeout(() => {
+//             h1.style.color = color;
+//             resolve("color changed!");
+//         }, delay);
+//     });
+// }
+
+// changeColor("red", 1000)
+//     .then(() => {
+//         console.log("red color was completed");
+//         return changeColor("orange", 1000);
+//     })
+//     .then(() => {
+//         console.log("orange color was completed");
+//         return changeColor("blue", 1000);
+//     })
+//     .then(() => {
+//         console.log("blue color was completed");
+//         return changeColor("grey", 1000);
+//     })
+//     .then(() => {
+//         console.log("grey color was completed");
+//     });
+

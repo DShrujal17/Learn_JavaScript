@@ -147,7 +147,7 @@
 
 // ---------------------------------------------------------------------------------------
 
-// Example 5 : Refactoring old code 
+// Example 5 : Refactoring color changing code with then and catch
 
 // let h1 = document.querySelector("h1");
 
@@ -177,3 +177,117 @@
 //         console.log("grey color was completed");
 //     });
 
+// ---------------------------------------------------------------------------------------
+
+// Example 6 : Asynchronous Function(async & await function)
+
+//-------------------------------- async -------------------------------------------------
+
+// async function greet() {
+//     return "Hello";
+// }
+
+// greet()
+// .then((result) => {
+//     console.log("Promise was resolved");
+//     console.log("Result is: ",result);
+// })
+// .catch((err)=> {
+//     console.log("Promise was reject");
+//     console.log("Error is: ",err);
+// })
+
+// let demo = async () => {
+//     return 13;
+// };
+
+// demo()
+// .then((result) => {
+//     console.log("Promise was resolved");
+//     console.log("Result is: ",result);
+// })
+// .catch((err)=> {
+//     console.log("Promise was reject");
+//     console.log("Error is: ",err);
+// })
+
+//-------------------------------- await  -------------------------------------------------
+
+// function getNum() {
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+//             let num = Math.floor(Math.random() * 10) + 1;
+//             console.log(num);
+//             resolve();
+//         },1000);
+//     });
+// }
+
+// async function demo() {
+//     await getNum();
+//     await getNum();
+//     await getNum();
+//     await getNum();
+//     getNum();
+// }
+
+// ---------------------------------------------------------------------------------------
+
+// Example 7 : Refactoring color changing code with async and await
+
+// let h1 = document.querySelector("h1");
+
+// function changeColor(color, delay) {
+//     return new Promise((resolve, reject) => { 
+//         setTimeout(() => {
+//             h1.style.color = color;
+//             console.log(`color changed to ${color}!`);
+//             resolve("color changed!");
+//         }, delay);
+//     });
+// }
+
+// async function demo() {
+//     await changeColor("red",1000);
+//     await changeColor("blue",1000);
+//     await changeColor("purple",1000);
+//     await changeColor("orange",1000);
+//     changeColor("grey",1000);
+// }
+
+// Example 7 : Handling Rejections wiith await
+
+// let h1 = document.querySelector("h1");
+
+// function changeColor(color, delay) {
+//     return new Promise((resolve, reject) => { 
+//         setTimeout(() => {
+//             let num = Math.floor(Math.random() * 10) + 1;
+//             if(num > 3)
+//             {
+//                 reject("Promise rejected");
+//             }
+
+//             h1.style.color = color;
+//             console.log(`color changed to ${color}!`);
+//             resolve("color changed!");
+//         }, delay);
+//     });
+// }
+
+// async function demo() {
+//     try {
+//         await changeColor("red",1000);
+//         await changeColor("blue",1000);
+//         await changeColor("purple",1000);
+//         await changeColor("orange",1000);
+//         await changeColor("grey",1000);
+//     }
+//     catch(err) {
+//         console.log("error caught: ",err);
+//     }
+
+//     let a =  5;
+//     console.log(a);
+//     console.log("num is: ",a+3);
+// }
